@@ -11,6 +11,15 @@ namespace DZ_Otus_7
 
             Console.WriteLine("Первое задание");
             FirstTask();
+
+            //Задание 2
+            Console.WriteLine("Второе задание");
+            SecondTask(); 
+            
+            //var catPlan = new CatalogOfPlanets();
+            //Console.WriteLine(catPlan.GetPlanet("Земля"));
+            //Console.WriteLine(catPlan.GetPlanet("Лимония"));
+            //Console.WriteLine(catPlan.GetPlanet("Марс"));
         }
 
 
@@ -59,33 +68,43 @@ namespace DZ_Otus_7
             //    Console.WriteLine($"    Длина экватора: {planet}");
             //}
 
-            Console.WriteLine($"Информация по планете {Venus.Name}:");
+            Console.WriteLine($" Информация по планете {Venus.Name}:");
             Console.WriteLine($"    Длина экватора: {Venus.LengthEcuator} км");
             Console.WriteLine($"    Порядковый номер от Солнца: {Venus.NumFromSun}");
             Console.WriteLine($"    Эта планета эквивалентна Венере: {Venus.Equals(Venus)}");
 
             Console.WriteLine();
 
-            Console.WriteLine($"Информация по планете {Earth.Name}:");
+            Console.WriteLine($" Информация по планете {Earth.Name}:");
             Console.WriteLine($"    Длина экватора: {Earth.LengthEcuator} км");
             Console.WriteLine($"    Порядковый номер от Солнца: {Earth.NumFromSun}");
             Console.WriteLine($"    Эта планета эквивалентна Венере: {Earth.Equals(Venus)}");
 
             Console.WriteLine();
 
-            Console.WriteLine($"Информация по планете {Mars.Name}:");
+            Console.WriteLine($" Информация по планете {Mars.Name}:");
             Console.WriteLine($"    Длина экватора: {Mars.LengthEcuator} км");
             Console.WriteLine($"    Порядковый номер от Солнца: {Mars.NumFromSun}");
             Console.WriteLine($"    Эта планета эквивалентна Венере: {Mars.Equals(Venus)}");
 
             Console.WriteLine();
 
-            Console.WriteLine($"Информация по планете {Venus2.Name}:");
+            Console.WriteLine($" Информация по планете {Venus2.Name}:");
             Console.WriteLine($"    Длина экватора: {Venus2.LengthEcuator} км");
             Console.WriteLine($"    Порядковый номер от Солнца: {Venus2.NumFromSun}");
             Console.WriteLine($"    Эта планета эквивалентна Венере: {Venus2.Equals(Venus)}");
+            
+            Console.WriteLine();
         }
 
+        public static void SecondTask()
+        {
+            var planets = new CatalogOfPlanets();
+            Console.WriteLine(planets.GetPlanet("Земля"));
+            Console.WriteLine(planets.GetPlanet("Лимония"));
+            Console.WriteLine(planets.GetPlanet("Марс"));
+
+        }
     }
     
 
