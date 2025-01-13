@@ -31,11 +31,8 @@ namespace DZ_Otus_7
 
         public (int, int, string) GetPlanet(string name, PlanetValidator validator) 
         {
-            if (validator(name) != null) 
-            
-           
+            if (validator(name) != null)  
             {
-
                 if (planets.Any(p => p.Name == name))
                 {
                     var planetFound = planets.Find(p => p.Name == name);
@@ -46,15 +43,11 @@ namespace DZ_Otus_7
                 }
 
                 return (0, 0, $"Найти планету с таким именем '{name}' не удалось");
-
-
             }
             else
             {
                 return (0, 0, $"Найти планету с таким именем '{name}' не удалось");
             }
-            
-
         }
 
     }
