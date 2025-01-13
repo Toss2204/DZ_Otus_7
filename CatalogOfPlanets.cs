@@ -10,8 +10,9 @@ namespace DZ_Otus_7
 {
     public class CatalogOfPlanets
     {
-        public string Name;
-        
+        public string namePlanet;
+        public int counter;
+        public List<Planet> planets;
 
         public CatalogOfPlanets()
         {
@@ -19,16 +20,37 @@ namespace DZ_Otus_7
             var Earth = new Planet("Earth", 3, 40075, Venus);
             var Mars = new Planet("Mars", 4, 21326, Earth);
 
-            List<Planet> planets = new List<Planet>() { Venus, Earth, Mars };
+            planets = new List<Planet>() { Venus, Earth, Mars };
         }
 
 
         
 
 
-        public string GetPlanet(string name) 
+        public (int, int, string) GetPlanet(string name) 
         {
-            return name;
+            counter++;
+            if (counter % 3 == 0)
+            {
+                return (0, 0, "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!");
+            }
+            else 
+            {
+                
+                if (planets.Any(p => p.Name == name))
+                {
+                    var planetFound = planets.Find(p => p.Name == name);
+                    if (planetFound != null)
+                    {
+                        return (planetFound.NumFromSun, planetFound.LengthEcuator, "");
+                    }
+                }
+                
+                return (0, 0, $"Найти планету с таким именем '{name}' не удалось");
+                
+                            
+            }
+
         }
 
     }

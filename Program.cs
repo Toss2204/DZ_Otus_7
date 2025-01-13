@@ -99,10 +99,33 @@ namespace DZ_Otus_7
 
         public static void SecondTask()
         {
+            
             var planets = new CatalogOfPlanets();
-            Console.WriteLine(planets.GetPlanet("Земля"));
-            Console.WriteLine(planets.GetPlanet("Лимония"));
-            Console.WriteLine(planets.GetPlanet("Марс"));
+
+            string[] arrayPlanets = ["Earth", "Лимония", "Mars"];
+
+            foreach (var planet in arrayPlanets)
+            {
+                var tuple = planets.GetPlanet(planet);
+                if (tuple.Item3.Length > 0) //значит не найдена планета или перебор с количеством запроса
+                {
+                    Console.WriteLine(tuple.Item3);
+                }
+                else
+                {
+                    Console.WriteLine(planet);
+                    Console.WriteLine($"Порядковый номер от Солнца: {tuple.Item1}");
+                    Console.WriteLine($"Длина экватора: {tuple.Item2} км");
+                }
+
+                Console.WriteLine();
+            }
+            //Console.WriteLine(planets.GetPlanet("Лимония"));
+
+            //Console.WriteLine();
+
+            //Console.WriteLine(planets.GetPlanet("Марс"));
+            //Console.WriteLine();
 
         }
     }
