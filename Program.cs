@@ -120,12 +120,7 @@ namespace DZ_Otus_7
 
                 Console.WriteLine();
             }
-            //Console.WriteLine(planets.GetPlanet("Лимония"));
-
-            //Console.WriteLine();
-
-            //Console.WriteLine(planets.GetPlanet("Марс"));
-            //Console.WriteLine();
+            
 
         }
     }
