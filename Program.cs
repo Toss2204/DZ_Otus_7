@@ -1,9 +1,24 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics.Metrics;
+using System.Numerics;
+using System.Reflection;
 
 namespace DZ_Otus_7
 {
     internal class Program
     {
+
+        //public delegate string PlanetValidator(string planetName);
+        //public int counter;
+        //public string PlanetValidatorMethod(string planetName)
+        //{
+        //    counter++;
+        //    if (counter % 3 == 0)
+        //    {
+        //        return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+        //    }
+        //    return null;
+        //}
+
         static void Main(string[] args)
         {
             //Программа 1 
@@ -13,13 +28,13 @@ namespace DZ_Otus_7
             FirstTask();
 
             //Задание 2
+            Console.WriteLine("");
             Console.WriteLine("Второе задание");
-            SecondTask(); 
-            
-            //var catPlan = new CatalogOfPlanets();
-            //Console.WriteLine(catPlan.GetPlanet("Земля"));
-            //Console.WriteLine(catPlan.GetPlanet("Лимония"));
-            //Console.WriteLine(catPlan.GetPlanet("Марс"));
+            SecondTask();
+
+            //Задание 3
+            Console.WriteLine("Третье задание");
+            ThirdTask();
         }
 
 
@@ -93,13 +108,14 @@ namespace DZ_Otus_7
             Console.WriteLine($"    Длина экватора: {Venus2.LengthEcuator} км");
             Console.WriteLine($"    Порядковый номер от Солнца: {Venus2.NumFromSun}");
             Console.WriteLine($"    Эта планета эквивалентна Венере: {Venus2.Equals(Venus)}");
-            
+
             Console.WriteLine();
+            Console.WriteLine(new string('-', Console.WindowWidth));
         }
 
         public static void SecondTask()
         {
-            
+
             var planets = new CatalogOfPlanets();
 
             string[] arrayPlanets = ["Earth", "Лимония", "Mars"];
@@ -120,10 +136,82 @@ namespace DZ_Otus_7
 
                 Console.WriteLine();
             }
+            Console.WriteLine(new string('-', Console.WindowWidth));
+
+        }
+
+        public static void ThirdTask()
+        {
+           int counter=0;
+        var planets = new CatalogOfPlanets_new();
+
+        string[] arrayPlanets = ["Earth", "Лимония", "Mars","Юпитер","Меркурий","Сатурн"];
             
+            foreach (var planet in arrayPlanets)
+            {
+                var tuple = planets.GetPlanet(planet,planet=> {
+                    counter++;
+                    if (counter % 3 == 0)
+                    {
+                        return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+                    }
+                    return null;
+                });
+
+                if (tuple.Item3.Length > 0) //значит не найдена планета или перебор с количеством запроса
+                {
+                    Console.WriteLine(tuple.Item3);
+                }
+                else
+                {
+                    Console.WriteLine(planet);
+                    Console.WriteLine($"Порядковый номер от Солнца: {tuple.Item1}");
+                    Console.WriteLine($"Длина экватора: {tuple.Item2} км");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine(new string ('-',Console.WindowWidth));
+
+            foreach (var planet in arrayPlanets)
+            {
+                var tuple = planets.GetPlanet(planet, planet=> {
+                    counter++;
+                    if (counter % 3 == 0)
+                    {
+                        return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+                    }
+
+                    if (planet.ToLower() == "лимония")
+                    {
+                        return "Запретная планета";
+                    }
+                    return null;
+                });
+            
+                if (tuple.Item3.Length > 0) //значит не найдена планета или перебор с количеством запроса
+                {
+                    Console.WriteLine(tuple.Item3);
+                }
+                else
+                {
+                    Console.WriteLine(planet);
+                    Console.WriteLine($"Порядковый номер от Солнца: {tuple.Item1}");
+                    Console.WriteLine($"Длина экватора: {tuple.Item2} км");
+                }
+
+                Console.WriteLine();
+            }
+
+
+        }
+            
+
 
         }
     }
     
 
-}
+
+

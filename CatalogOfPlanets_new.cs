@@ -16,6 +16,31 @@ namespace DZ_Otus_7
 
         public delegate string PlanetValidator(string planetName);
 
+        public string PlanetValidatorMethod(string planetName)
+        {
+            counter++;
+            if (counter % 3 == 0)
+            {
+                return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+            }
+            return null;
+        }
+
+        public string PlanetValidatorMethod_Limon(string planetName)
+        {
+            counter++;
+            if (counter % 3 == 0)
+            {
+                return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+            }
+
+            if (planetName.ToLower() == "лимония")
+            {
+                return "Запретная планета";
+            }
+            return null;
+        }
+
         public CatalogOfPlanets_new()
         {
             var Venus = new Planet("Venus", 2, 12100, planet: null);
@@ -31,7 +56,10 @@ namespace DZ_Otus_7
 
         public (int, int, string) GetPlanet(string name, PlanetValidator validator) 
         {
-            if (validator(name) != null)  
+            //validator = PlanetValidatorMethod;
+            string validator_val = validator(name);
+
+            if (validator_val == null)  
             {
                 if (planets.Any(p => p.Name == name))
                 {
@@ -46,7 +74,7 @@ namespace DZ_Otus_7
             }
             else
             {
-                return (0, 0, $"Найти планету с таким именем '{name}' не удалось");
+                return (0, 0, validator_val);
             }
         }
 
