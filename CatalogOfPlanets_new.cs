@@ -16,30 +16,30 @@ namespace DZ_Otus_7
 
         public delegate string PlanetValidator(string planetName);
 
-        public string PlanetValidatorMethod(string planetName)
-        {
-            counter++;
-            if (counter % 3 == 0)
-            {
-                return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
-            }
-            return null;
-        }
+        //public string PlanetValidatorMethod(string planetName)
+        //{
+        //    counter++;
+        //    if (counter % 3 == 0)
+        //    {
+        //        return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+        //    }
+        //    return null;
+        //}
 
-        public string PlanetValidatorMethod_Limon(string planetName)
-        {
-            counter++;
-            if (counter % 3 == 0)
-            {
-                return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
-            }
+        //public string PlanetValidatorMethod_Limon(string planetName)
+        //{
+        //    counter++;
+        //    if (counter % 3 == 0)
+        //    {
+        //        return "Оставь меня, старушка, я в печали... Слишком часто запрашиваете!";
+        //    }
 
-            if (planetName.ToLower() == "лимония")
-            {
-                return "Запретная планета";
-            }
-            return null;
-        }
+        //    if (planetName.ToLower() == "лимония")
+        //    {
+        //        return "Запретная планета";
+        //    }
+        //    return null;
+        //}
 
         public CatalogOfPlanets_new()
         {
