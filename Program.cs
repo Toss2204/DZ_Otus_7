@@ -71,7 +71,7 @@ namespace DZ_Otus_7
                 Name = "Venus",
                 NumFromSun = 2,
                 LengthEcuator = 12100,
-                PreviousPlanet = Mars
+                PreviousPlanet = (object) null//Mars
             };
 
 
